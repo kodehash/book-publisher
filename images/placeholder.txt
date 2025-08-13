@@ -1,0 +1,9 @@
+This directory is for storing story cover images and chapter illustrations.
+
+Recommended image specifications:
+- Cover images: 400x600 pixels (3:2 ratio)
+- Chapter illustrations: max 800px width, height auto
+- Formats: JPG or PNG
+- File naming: Use descriptive names like "story1-cover.jpg" or "library-basement.jpg"
+
+The website will gracefully handle missing images by hiding them, so you can add images later without breaking the layout. 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STORY_TITLE - Chapter CHAPTER_NUMBER</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="story-header-nav">
+        <div class="container">
+            <nav class="story-nav">
+                <a href="index.html" class="back-home-btn">
+                    <span class="back-icon">←</span>
+                    <span class="back-text">Back to Stories</span>
+                </a>
+                <div class="story-nav-title">
+                    <h1>STORY_TITLE</h1>
+                </div>
+                <div class="story-nav-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="story-main">
+        <!-- Hero Section with Cover -->
+        <section class="story-hero">
+            <div class="container">
+                <div class="story-hero-content">
+                    <div class="story-cover-large">
+                        <img src="images/COVER_IMAGE" alt="STORY_TITLE Cover" class="hero-cover-image">
+                    </div>
+                    <div class="story-hero-info">
+                        <div class="story-meta-badges">
+                            <span class="genre-badge">GENRE</span>
+                            <span class="chapters-badge">CHAPTER CHAPTER_NUMBER of TOTAL_CHAPTERS</span>
+                        </div>
+                        <h2 class="chapter-title">Chapter CHAPTER_NUMBER: CHAPTER_TITLE</h2>
+                        <div class="story-description">
+                            <p>STORY_DESCRIPTION</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter Navigation -->
+        <section class="chapter-navigation-modern">
+            <div class="container">
+                <div class="chapter-nav-container">
+                    <a href="PREVIOUS_CHAPTER_LINK" class="nav-btn nav-prev">
+                        <span class="nav-icon">←</span>
+                        <span class="nav-text">Previous Chapter</span>
+                    </a>
+                    <div class="chapter-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: PROGRESS_PERCENTAGE%"></div>
+                        </div>
+                        <span class="progress-text">Chapter CHAPTER_NUMBER of TOTAL_CHAPTERS</span>
+                    </div>
+                    <a href="NEXT_CHAPTER_LINK" class="nav-btn nav-next">
+                        <span class="nav-text">Next Chapter</span>
+                        <span class="nav-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter Content -->
+        <section class="chapter-content-modern">
+            <div class="container">
+                <article class="chapter-article">
+                    <div class="content-wrapper">
+                        <p>Your story content goes here. Write your paragraphs with proper spacing and structure.</p>
+                        
+                        <!-- Optional: Add an illustration -->
+                        <!-- Remove this entire div if you don't have an illustration -->
+                        <div class="chapter-illustration-modern">
+                            <img src="ILLUSTRATION_IMAGE" alt="Chapter illustration" class="illustration-image">
+                            <div class="illustration-caption">Caption for your illustration</div>
+                        </div>
+                        
+                        <p>Continue your story here. You can add more illustrations throughout the chapter as needed.</p>
+                        
+                        <p>Remember to maintain good paragraph breaks and readability. The CSS will handle the styling automatically.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <section class="chapter-navigation-modern bottom-nav">
+            <div class="container">
+                <div class="chapter-nav-container">
+                    <a href="PREVIOUS_CHAPTER_LINK" class="nav-btn nav-prev">
+                        <span class="nav-icon">←</span>
+                        <span class="nav-text">Previous Chapter</span>
+                    </a>
+                    <a href="NEXT_CHAPTER_LINK" class="nav-btn nav-next">
+                        <span class="nav-text">Next Chapter</span>
+                        <span class="nav-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="story-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Story Publisher. All stories are original works.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

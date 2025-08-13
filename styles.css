@@ -1045,6 +1045,8 @@ p {
 .content-wrapper p {
     margin-bottom: 1.5rem;
     text-align: justify;
+    /* Ensure proper text flow around floated elements */
+    overflow-wrap: break-word;
 }
 
 .content-wrapper h2 {
@@ -1175,6 +1177,19 @@ p {
         flex-direction: column;
         text-align: center;
     }
+    
+    /* Mobile layout for inline illustrations */
+    .chapter-illustration-inline {
+        float: none;
+        margin: 0 0 2rem 0;
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .content-wrapper {
+        margin-left: 0;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1197,4 +1212,34 @@ p {
     .back-text {
         display: none;
     }
+} 
+
+/* Inline Illustration Styles */
+.chapter-illustration-inline {
+    float: left;
+    margin: 0 2rem 0 0;
+    max-width: 250px;
+    text-align: center;
+}
+
+.chapter-illustration-inline img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure text flows properly around inline images */
+.content-wrapper {
+    overflow: hidden;
+    position: relative;
+    margin-left: 0; /* Reset margin to let content flow naturally */
+    max-width: 100%; /* Allow content to use full available width */
+}
+
+.content-wrapper p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    /* Ensure proper text flow around floated elements */
+    overflow-wrap: break-word;
 } 

@@ -1243,3 +1243,61 @@ p {
     /* Ensure proper text flow around floated elements */
     overflow-wrap: break-word;
 } 
+
+/* Chapter Header */
+.chapter-header {
+    background: white;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.chapter-header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.chapter-main-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.chapter-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.genre-tag {
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Responsive design for chapter header */
+@media (max-width: 768px) {
+    .chapter-header {
+        padding: 1rem 0;
+    }
+    
+    .chapter-main-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-main-title {
+        font-size: 1.4rem;
+    }
+    
+    .chapter-header {
+        padding: 0.75rem 0;
+    }
+} 

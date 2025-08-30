@@ -1229,6 +1229,19 @@ p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Landscape-oriented inline images for chapters 6 and 7 */
+.chapter-illustration-inline.landscape {
+    max-width: 400px;
+    margin: 0 2.5rem 1rem 0;
+}
+
+.chapter-illustration-inline.landscape img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 /* Ensure text flows properly around inline images */
 .content-wrapper {
     overflow: hidden;

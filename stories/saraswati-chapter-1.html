@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saraswati - Chapter 1</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../audio-player.js" defer></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -32,7 +33,7 @@
         <section class="chapter-header">
             <div class="container">
                 <div class="chapter-header-content">
-                    <h1 class="chapter-main-title">Chapter - 1</h1>
+                    <h1 class="chapter-main-title">Chapter 1 - Queries and Quarrels</h1>
                     <div class="chapter-meta">
                         <!-- <span class="genre-tag">Mystery</span> -->
                         <!-- <span class="chapter-progress-text">Chapter 1 of 3</span> -->
@@ -41,7 +42,57 @@
             </div>
         </section>
 
+        <!-- Audio Player -->
+        <section class="audio-player-container">
+            <div class="container">
+                <div class="audio-player">
+                    <div class="audio-controls">
+                        <button class="play-pause-btn" aria-label="Play audio">▶️</button>
+                        <button class="stop-btn">Stop</button>
+                        
+                        <div class="audio-progress">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span class="current-time">0:00</span>
+                                <span class="total-time">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="audio-settings">
+                        <div class="speed-control">
+                            <label>Speed:</label>
+                            <select class="speed-select">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+                        
+                        <div class="volume-control">
+                            <label>Volume:</label>
+                            <input type="range" class="volume-slider" min="0" max="100" value="100">
+                            <button class="mute-btn" aria-label="Mute audio">🔊</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hidden audio element -->
+                <audio preload="metadata">
+                    <source src="../audio-files/saraswati-chapter1.m4a" type="audio/mp4">
+                    <source src="../audio-files/saraswati-chapter1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </section>
+
         <!-- Chapter Navigation -->
+        <section class="chapter-navigation-modern">
             <div class="container">
                 <div class="chapter-nav-container">
                     <a href="saraswati-prologue.html" class="nav-btn nav-prev">
@@ -78,8 +129,8 @@
                             <img src="../images/saraswati-chapter1.png" alt="Shwetha and Aditi in their apartment" class="illustration-image">
                         </div>
                         <p>Five minutes later Shwetha emerged wiping her hands. She froze. "Why are you moving my stuff?" Aditi, already dismantling a shoe rack, answered breezily, "Didn't I tell you? Broker found us another flat‐mate."</p>
-                        <p>"In my room? I can't share one loo with three girls!"</p>
-                        <p>"We are not in the 90s, we are in 2014, Rent's gone up, electricity is killing us. Adjust, madam."</p>
+                        <p>"In my room? I can't share one loo with three girls!", Shwetha said angrily.</p>
+                        <p>Aditi said, "We are not in the 90s, we are in 2014, Rent's gone up, electricity is killing us. Adjust, madam."</p>
                         <p>"I guess an internship would save us from this mess, but I am not sure if I can get one.", Shwetha sighed.</p>
                         <p>A timid knock interrupted them.</p>
                         <p>Shwetha heads to the door ranting - "Let's see how this goes.."</p>

@@ -599,6 +599,17 @@ p {
     padding-right: 0.5rem;
 }
 
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #4ecdc4;
+    text-decoration: underline;
+}
+
 .footer-bottom {
     border-top: 2px solid rgba(78, 205, 196, 0.3);
     padding-top: 2rem;

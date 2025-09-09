@@ -1,4 +1,4 @@
-# Story Publisher Website
+# RoughNotes Website
 
 A simple, static website for publishing your short stories with chapters and illustrations.
 

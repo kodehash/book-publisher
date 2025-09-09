@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saraswati - Chapter 8</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../audio-player.js" defer></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -18,9 +19,6 @@
                 <div class="story-nav-title">
                     <h1>Saraswati</h1>
                 </div>
-                <div class="story-nav-actions">
-                    <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
-                </div>
             </nav>
         </div>
     </header>
@@ -31,12 +29,65 @@
         <section class="chapter-header">
             <div class="container">
                 <div class="chapter-header-content">
-                    <h1 class="chapter-main-title">Chapter 8</h1>
+                    <h1 class="chapter-main-title">Chapter 8 - The Pursuit</h1>
                     <div class="chapter-meta">
                         <!-- <span class="genre-tag">Mystery</span> -->
                         <!-- <span class="chapter-progress-text">Chapter 7 of 7</span> -->
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Audio Player -->
+        <section class="audio-player-container">
+            <div class="container">
+                <div class="audio-player">
+                    <div class="audio-controls">
+                        <button class="audio-nav-btn audio-prev-btn" aria-label="Previous chapter" data-url="saraswati-chapter-7.html">
+                            <span class="nav-icon">⏮️</span>
+                        </button>
+                        <button class="play-pause-btn" aria-label="Play audio">▶️</button>
+                        <button class="audio-nav-btn audio-next-btn" aria-label="Next chapter" data-url="saraswati-chapter-9.html">
+                            <span class="nav-icon">⏭️</span>
+                        </button>
+                        
+                        <div class="audio-progress">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span class="current-time">0:00</span>
+                                <span class="total-time">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="audio-settings">
+                        <div class="speed-control">
+                            <label>Speed:</label>
+                            <select class="speed-select">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+                        
+                        <div class="volume-control">
+                            <label>Volume:</label>
+                            <input type="range" class="volume-slider" min="0" max="100" value="100">
+                            <button class="mute-btn" aria-label="Mute audio">🔊</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hidden audio element -->
+                <audio preload="metadata">
+                    <source src="https://ryxv5n2yi9po7dtn.public.blob.vercel-storage.com/saraswati-chapter8.m4a" type="audio/mp4">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </section>
 
@@ -67,7 +118,7 @@
             <div class="container">
                 <article class="chapter-article">
                     <div class="content-wrapper">                        
-                        <p>The police station exploded into chaos the moment Madan broke free. With a sudden surge of strength that belied his age, he shoved the constables aside and bolted toward the exit. Shouts filled the air—orders barked, boots pounding against concrete—but Madan was already out the door.</p>
+                        <p>The police station exploded into chaos the moment Madan broke free. With a sudden surge of strength that belied his age, he shoved the constables aside and bolted towards the exit. Shouts filled the air—orders barked, boots pounding against concrete—but Madan was already out the door.</p>
                         
                         <p>In the street, headlights slashed through the dark. He wrenched open the door of a battered white Alto idling near the kerb, threw the startled driver aside, and slammed the accelerator. Tyres shrieked, rubber burning into the midnight silence, the car fishtailing as it tore down the road.</p>
                         
@@ -112,7 +163,7 @@
                         <p>Avni's finger rested firm against the trigger guard.</p>
                         <p>"One move too fast, and you won't get the chance to read a single word."</p>
                         
-                        <p>Step by cautious step, Madan moved toward the machine, Avni's Glock following his every motion. He reached the chair, picked up the diary—dust puffing into the air—and clutched it like it was a piece of his soul.</p>
+                        <p>Step by cautious step, Madan moved toward the machine, Avni's Glock following his every motion. He reached the chair, picked up the diary,and clutched it like it was a piece of his soul.</p>
                         
                         <p>As he fumbled it open, something slipped from between its pages. A folded letter, edges browned, tucked deliberately inside.</p>
                         

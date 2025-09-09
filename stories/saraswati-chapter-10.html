@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saraswati - Chapter 10</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../audio-player.js" defer></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -18,9 +19,6 @@
                 <div class="story-nav-title">
                     <h1>Saraswati</h1>
                 </div>
-                <div class="story-nav-actions">
-                    <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
-                </div>
             </nav>
         </div>
     </header>
@@ -31,12 +29,65 @@
         <section class="chapter-header">
             <div class="container">
                 <div class="chapter-header-content">
-                    <h1 class="chapter-main-title">Chapter 10</h1>
+                    <h1 class="chapter-main-title">Chapter 10 - A Lesson in Time</h1>
                     <div class="chapter-meta">
                         <!-- <span class="genre-tag">Mystery</span> -->
                         <!-- <span class="chapter-progress-text">Chapter 10 of 10</span> -->
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Audio Player -->
+        <section class="audio-player-container">
+            <div class="container">
+                <div class="audio-player">
+                    <div class="audio-controls">
+                        <button class="audio-nav-btn audio-prev-btn" aria-label="Previous chapter" data-url="saraswati-chapter-9.html">
+                            <span class="nav-icon">⏮️</span>
+                        </button>
+                        <button class="play-pause-btn" aria-label="Play audio">▶️</button>
+                        <button class="audio-nav-btn audio-next-btn" aria-label="Next chapter" disabled data-url="">
+                            <span class="nav-icon">⏭️</span>
+                        </button>
+                        
+                        <div class="audio-progress">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill"></div>
+                            </div>
+                            <div class="time-display">
+                                <span class="current-time">0:00</span>
+                                <span class="total-time">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="audio-settings">
+                        <div class="speed-control">
+                            <label>Speed:</label>
+                            <select class="speed-select">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="2">2x</option>
+                            </select>
+                        </div>
+                        
+                        <div class="volume-control">
+                            <label>Volume:</label>
+                            <input type="range" class="volume-slider" min="0" max="100" value="100">
+                            <button class="mute-btn" aria-label="Mute audio">🔊</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hidden audio element -->
+                <audio preload="metadata">
+                    <source src="https://ryxv5n2yi9po7dtn.public.blob.vercel-storage.com/saraswati-chapter10.m4a" type="audio/mp4">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </section>
 
@@ -67,7 +118,7 @@
             <div class="container">
                 <article class="chapter-article">
                     <div class="content-wrapper">                        
-                        <p>Madan continued to read the letter, voice hoarse: He picked it up from his older version was telling him what happened after he drowned into liqour for a year.</p>
+                        <p>Madan continued to read the letter, voice hoarse: He picked it up from his older version telling him what happened after he drowned into liqour for a year.</p>
                         
                         <p>"Do you remember Vedant? He used to help with formulas. He found me, pulled me up. Slowly, we began again. We rebuilt the machine, far better this time. We waited for 2034—a solar eclipse with a longer time-lapse. Vedant tuned the machine so it could travel to a precise time. I wanted to return to 1995 and change everything. But with only sixty-nine seconds during that eclipse, I could travel no further back than 2013. So I researched. I visited crime branches, hunted for the exact year Saraswati had travelled. I found it—in her own arrogant YouTube podcast, bragging after she was released. Pitiful."</p>
                         
@@ -81,7 +132,7 @@
                         
                         <h2>Weeks Later</h2>
                         
-                        <p>The gates of the station creaked open. Madan stepped out, hollow-eyed, carrying only the weight of memory. The evening sun spilled across the road.</p>
+                        <p>The gates of the prison creaked open. Madan stepped out, hollow-eyed, carrying only the weight of memory. The evening sun spilled across the road.</p>
                         
                         <p>Avni waited.</p>
                         
@@ -94,6 +145,7 @@
                         <p>Madan began walking too, slow at first, then steadier, the echo of Avni's words in his ears. Time does not forgive those who wait.</p>
                         
                         <p>A kilometre down the road, under a Peepal tree, someone waited—Vedant. His assistant. His friend.</p>
+                        <p> He remebered from the letter that he was the one who pulled him up in the future. Did not say anything to him.</p>
                         
                         <p>Their eyes met. A smile broke through Madan's grief. Vedant returned it.</p>
                         

@@ -4,7 +4,8 @@
 The Saraswati story now includes a modern, responsive audio book player that allows readers to listen to voice recordings while reading each chapter.
 
 ## 🎯 Features
-- **Play/Pause/Stop** controls
+- **Play/Pause** toggle control
+- **Chapter Navigation** with previous/next buttons
 - **Progress bar** with seek functionality
 - **Speed control** (0.5x to 2x)
 - **Volume control** with mute
@@ -65,8 +66,13 @@ The audio player is already integrated into Chapter 1. To add it to other chapte
     <div class="container">
         <div class="audio-player">
             <div class="audio-controls">
+                <button class="audio-nav-btn audio-prev-btn" aria-label="Previous chapter" data-url="previous-chapter.html">
+                    <span class="nav-icon">⏮️</span>
+                </button>
                 <button class="play-pause-btn" aria-label="Play audio">▶️</button>
-                <button class="stop-btn">Stop</button>
+                <button class="audio-nav-btn audio-next-btn" aria-label="Next chapter" data-url="next-chapter.html">
+                    <span class="nav-icon">⏭️</span>
+                </button>
                 
                 <div class="audio-progress">
                     <div class="progress-bar-container">

@@ -6,6 +6,7 @@ class AudioBookPlayer {
         this.currentSpeed = 1;
         this.isMuted = false;
         this.previousVolume = 1;
+        this.isSeeking = false;
         
         this.initializeControls();
         this.bindEvents();
@@ -15,7 +16,6 @@ class AudioBookPlayer {
     initializeControls() {
         // Create control elements
         this.playPauseBtn = this.container.querySelector('.play-pause-btn');
-        this.stopBtn = this.container.querySelector('.stop-btn');
         this.progressBar = this.container.querySelector('.progress-bar-container');
         this.progressFill = this.container.querySelector('.progress-bar-fill');
         this.currentTime = this.container.querySelector('.current-time');
@@ -23,6 +23,8 @@ class AudioBookPlayer {
         this.speedSelect = this.container.querySelector('.speed-select');
         this.volumeSlider = this.container.querySelector('.volume-slider');
         this.muteBtn = this.container.querySelector('.mute-btn');
+        this.prevBtn = this.container.querySelector('.audio-prev-btn');
+        this.nextBtn = this.container.querySelector('.audio-next-btn');
         
         // Set initial values
         this.volumeSlider.value = 100;
@@ -33,11 +35,25 @@ class AudioBookPlayer {
         // Play/Pause button
         this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
         
-        // Stop button
-        this.stopBtn.addEventListener('click', () => this.stop());
+        // Navigation buttons
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.navigateToChapter('prev'));
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.navigateToChapter('next'));
+        }
         
         // Progress bar
         this.progressBar.addEventListener('click', (e) => this.seek(e));
+        this.progressBar.addEventListener('mousedown', (e) => this.startSeek(e));
+        this.progressBar.addEventListener('mousemove', (e) => this.updateSeek(e));
+        this.progressBar.addEventListener('mouseup', (e) => this.endSeek(e));
+        this.progressBar.addEventListener('mouseleave', (e) => this.endSeek(e));
+        
+        // Touch events for mobile
+        this.progressBar.addEventListener('touchstart', (e) => this.startSeek(e));
+        this.progressBar.addEventListener('touchmove', (e) => this.updateSeek(e));
+        this.progressBar.addEventListener('touchend', (e) => this.endSeek(e));
         
         // Speed control
         this.speedSelect.addEventListener('change', (e) => this.changeSpeed(e.target.value));
@@ -76,21 +92,35 @@ class AudioBookPlayer {
         this.updatePlayPauseButton();
     }
     
-    stop() {
-        this.audio.pause();
-        this.audio.currentTime = 0;
-        this.isPlaying = false;
-        this.updatePlayPauseButton();
-        this.updateProgress();
-    }
     
     seek(e) {
+        if (!this.audio.duration) return;
+        
         const rect = this.progressBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
+        const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+        const clickX = clientX - rect.left;
         const progressWidth = rect.width;
         const seekTime = (clickX / progressWidth) * this.audio.duration;
         
-        this.audio.currentTime = seekTime;
+        // Ensure seek time is within bounds
+        const clampedTime = Math.max(0, Math.min(seekTime, this.audio.duration));
+        this.audio.currentTime = clampedTime;
+    }
+    
+    startSeek(e) {
+        e.preventDefault();
+        this.isSeeking = true;
+        this.seek(e);
+    }
+    
+    updateSeek(e) {
+        if (!this.isSeeking) return;
+        e.preventDefault();
+        this.seek(e);
+    }
+    
+    endSeek(e) {
+        this.isSeeking = false;
     }
     
     changeSpeed(speed) {
@@ -183,6 +213,16 @@ class AudioBookPlayer {
         this.isPlaying = false;
         this.updatePlayPauseButton();
         this.updateProgress();
+    }
+    
+    navigateToChapter(direction) {
+        const button = direction === 'prev' ? this.prevBtn : this.nextBtn;
+        const url = button.getAttribute('data-url');
+        
+        if (url && !button.disabled) {
+            // Navigate to the new chapter
+            window.location.href = url;
+        }
     }
 }
 

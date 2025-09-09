@@ -19,9 +19,6 @@
                 <div class="story-nav-title">
                     <h1>Saraswati</h1>
                 </div>
-                <div class="story-nav-actions">
-                    <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
-                </div>
             </nav>
         </div>
     </header>
@@ -47,8 +44,13 @@
             <div class="container">
                 <div class="audio-player">
                     <div class="audio-controls">
+                        <button class="audio-nav-btn audio-prev-btn" aria-label="Previous chapter" disabled data-url="">
+                            <span class="nav-icon">⏮️</span>
+                        </button>
                         <button class="play-pause-btn" aria-label="Play audio">▶️</button>
-                        <button class="stop-btn">Stop</button>
+                        <button class="audio-nav-btn audio-next-btn" aria-label="Next chapter" data-url="saraswati-chapter-1.html">
+                            <span class="nav-icon">⏭️</span>
+                        </button>
                         
                         <div class="audio-progress">
                             <div class="progress-bar-container">

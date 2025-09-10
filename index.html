@@ -16,6 +16,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Firebase Rating System -->
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="firebase-rating-system.js"></script>
 </head>
 <body>
     <header class="main-header">
@@ -57,6 +60,17 @@
                                 </div>
                             </div>
                         </a>
+                        <div class="story-rating-external">
+                            <div class="stars" data-story="saraswati">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <span class="rating-text">Rate this story</span>
+                            <span class="rating-count">(0 ratings)</span>
+                        </div>
                     </article>
                 </div>
             </div>

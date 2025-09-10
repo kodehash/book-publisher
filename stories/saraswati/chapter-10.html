@@ -13,6 +13,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
     <link rel="manifest" href="../../favicon/site.webmanifest">
+    
+    <!-- Firebase Rating System -->
+    <script type="module" src="../../firebase-config.js"></script>
+    <script type="module" src="../../firebase-rating-system.js"></script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -172,6 +176,50 @@
                         
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- Story Rating Section -->
+        <section class="story-rating-section">
+            <div class="container">
+                <div class="rating-container">
+                    <h3>Rate this story</h3>
+                    <div class="story-rating-large">
+                        <div class="stars" data-story="saraswati">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <div class="rating-info">
+                            <span class="rating-text">Rate this story</span>
+                            <span class="rating-count">(0 ratings)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Section -->
+        <section class="review-section" data-story="saraswati">
+            <div class="container">
+                <div class="review-container">
+                    <h3>Write a Review</h3>
+                    <form class="review-form" data-story="saraswati">
+                        <div class="form-group">
+                            <input type="text" class="reviewer-name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="review-text" placeholder="Share your thoughts about this story..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-review-btn">Submit Review</button>
+                    </form>
+                    
+                    <div class="reviews-list">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                </div>
             </div>
         </section>
 

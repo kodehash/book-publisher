@@ -1786,6 +1786,328 @@ p {
     transition: transform 0.1s ease;
 }
 
+/* Rating System Styles */
+.story-rating {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 18px;
+    color: #ddd;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.star:hover,
+.star.hover {
+    color: #ffc107;
+    transform: scale(1.1);
+}
+
+.star.active {
+    color: #ffc107;
+}
+
+.star.half {
+    background: linear-gradient(90deg, #ffc107 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.rating-text {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.rating-count {
+    font-size: 12px;
+    color: #999;
+}
+
+.rating-thank-you {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Rating system on story cards */
+.story-card .story-rating {
+    margin: 6px 0 8px 0;
+}
+
+.story-card .stars {
+    gap: 1px;
+}
+
+.story-card .star {
+    font-size: 16px;
+}
+
+.story-card .rating-text {
+    font-size: 13px;
+}
+
+.story-card .rating-count {
+    font-size: 11px;
+}
+
+/* External rating system (outside card link) */
+.story-rating-external {
+    margin: 12px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #e9ecef;
+}
+
+.story-rating-external .stars {
+    display: flex;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.story-rating-external .star {
+    font-size: 16px;
+    color: #ddd;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+}
+
+.story-rating-external .star.active {
+    color: #ffc107;
+}
+
+.story-rating-external .star.hover {
+    color: #ffc107 !important;
+    transform: scale(1.1);
+}
+
+.story-rating-external .star:hover {
+    color: #ffc107;
+    transform: scale(1.1);
+}
+
+.story-rating-external .star.half {
+    background: linear-gradient(90deg, #ffc107 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.story-rating-external .rating-text {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+.story-rating-external .rating-count {
+    font-size: 11px;
+    color: #999;
+}
+
+/* Large rating section for story pages */
+.story-rating-section {
+    background: #f8f9fa;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.rating-container {
+    text-align: center;
+}
+
+.rating-container h3 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.story-rating-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.story-rating-large .stars {
+    gap: 4px;
+}
+
+.story-rating-large .star {
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.story-rating-large .star:hover {
+    transform: scale(1.2);
+}
+
+.rating-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rating-info .rating-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.rating-info .rating-count {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Review Section Styles */
+.review-section {
+    background: #fff;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-container h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.review-form {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.submit-review-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.submit-review-btn:hover {
+    transform: translateY(-1px);
+}
+
+.submit-review-btn:active {
+    transform: translateY(0);
+}
+
+.reviews-list {
+    margin-top: 2rem;
+}
+
+.review-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #667eea;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.review-header strong {
+    color: #333;
+    font-size: 14px;
+}
+
+.review-date {
+    color: #666;
+    font-size: 12px;
+}
+
+.review-content {
+    color: #555;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.rating-message {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .audio-player-container {

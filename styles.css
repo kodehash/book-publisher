@@ -1931,6 +1931,25 @@ p {
     color: #999;
 }
 
+.story-rating-external .reviews-link {
+    text-decoration: none;
+    color: #667eea;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border: 1px solid #e9ecef;
+    background: #fff;
+}
+
+.story-rating-external .reviews-link:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
 /* Large rating section for story pages */
 .story-rating-section {
     background: #f8f9fa;
@@ -2106,6 +2125,171 @@ p {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+/* Reviews Page Styles */
+.reviews-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.reviews-header-content {
+    text-align: center;
+}
+
+.back-to-stories {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-to-stories:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.reviews-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.story-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.story-rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.story-rating-summary .stars {
+    display: flex;
+    gap: 4px;
+    min-height: 30px;
+    align-items: center;
+}
+
+.story-rating-summary .star {
+    font-size: 24px;
+    color: #ddd;
+    transition: all 0.2s ease;
+}
+
+.story-rating-summary .star.active {
+    color: #ffc107;
+}
+
+.story-rating-summary .star.half {
+    background: linear-gradient(90deg, #ffc107 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.rating-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.average-rating {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.rating-count {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.reviews-content {
+    padding: 2rem 0;
+}
+
+.reviews-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-item {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+    transition: transform 0.2s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.review-header strong {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.review-date {
+    color: #666;
+    font-size: 12px;
+}
+
+.review-content {
+    color: #555;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.write-review-section {
+    background: #f8f9fa;
+    padding: 3rem 0;
+    margin-top: 2rem;
+}
+
+.write-review-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.write-review-container h3 {
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1.5rem;
 }
 
 /* Responsive Design */

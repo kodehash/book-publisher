@@ -20,6 +20,11 @@ class FirebaseRatingSystem {
         await this.loadAllReviews();
         this.bindEvents();
         this.updateAllRatings();
+        
+        // Special initialization for reviews page
+        if (window.location.pathname.includes('reviews.html')) {
+            this.initializeReviewsPage();
+        }
     }
 
     bindEvents() {
@@ -132,8 +137,10 @@ class FirebaseRatingSystem {
             this.reviews[storyId].push(reviewData);
             
             // Clear form
-            const form = document.querySelector(`[data-story="${storyId}"]`).closest('.review-section').querySelector('.review-form');
-            form.reset();
+            const form = document.querySelector(`.review-form[data-story="${storyId}"]`);
+            if (form) {
+                form.reset();
+            }
             
             this.updateReviews(storyId);
             this.showThankYouMessage('Thank you for your review!');
@@ -195,6 +202,8 @@ class FirebaseRatingSystem {
     }
 
     updateStars(stars, rating) {
+        if (!stars) return;
+        
         const starElements = stars.querySelectorAll('.star');
         starElements.forEach((star, index) => {
             // Remove all classes first
@@ -224,6 +233,7 @@ class FirebaseRatingSystem {
     updateRating(storyId) {
         const averageRating = this.getAverageRating(storyId);
         const ratingCount = this.getRatingCount(storyId);
+        const reviewCount = this.getReviews(storyId).length;
         
         // Update all rating displays for this story
         const ratingElements = document.querySelectorAll(`[data-story="${storyId}"]`);
@@ -235,6 +245,7 @@ class FirebaseRatingSystem {
         const ratingTexts = document.querySelectorAll(`[data-story="${storyId}"]`).forEach(stars => {
             const ratingText = stars.parentElement.querySelector('.rating-text');
             const ratingCountSpan = stars.parentElement.querySelector('.rating-count');
+            const reviewsCountSpan = stars.parentElement.querySelector('.reviews-count');
             
             if (ratingText) {
                 if (ratingCount > 0) {
@@ -247,15 +258,23 @@ class FirebaseRatingSystem {
             if (ratingCountSpan) {
                 ratingCountSpan.textContent = `(${ratingCount} rating${ratingCount !== 1 ? 's' : ''})`;
             }
+            
+            if (reviewsCountSpan) {
+                reviewsCountSpan.textContent = `${reviewCount} review${reviewCount !== 1 ? 's' : ''}`;
+            }
         });
+        
+        // Update reviews page elements
+        this.updateReviewsPage(storyId);
     }
 
     updateReviews(storyId) {
         const reviews = this.getReviews(storyId);
-        const reviewsContainer = document.querySelector(`[data-story="${storyId}"]`).closest('.review-section')?.querySelector('.reviews-list');
         
-        if (reviewsContainer) {
-            reviewsContainer.innerHTML = '';
+        // Update reviews on chapter pages (if they exist)
+        const chapterReviewsContainer = document.querySelector(`[data-story="${storyId}"]`)?.closest('.review-section')?.querySelector('.reviews-list');
+        if (chapterReviewsContainer) {
+            chapterReviewsContainer.innerHTML = '';
             reviews.slice(0, 5).forEach(review => {
                 const reviewElement = document.createElement('div');
                 reviewElement.className = 'review-item';
@@ -266,8 +285,61 @@ class FirebaseRatingSystem {
                     </div>
                     <div class="review-content">${review.reviewText}</div>
                 `;
-                reviewsContainer.appendChild(reviewElement);
+                chapterReviewsContainer.appendChild(reviewElement);
             });
+        }
+        
+        // Update reviews on reviews page
+        this.updateReviewsPage(storyId);
+    }
+
+    updateReviewsPage(storyId) {
+        const averageRating = this.getAverageRating(storyId);
+        const ratingCount = this.getRatingCount(storyId);
+        const reviews = this.getReviews(storyId);
+        
+        // Update rating summary (only on reviews page)
+        const averageRatingElement = document.getElementById('average-rating');
+        const ratingCountElement = document.getElementById('rating-count');
+        const storyRatingStars = document.getElementById('story-rating-stars');
+        
+        if (averageRatingElement) {
+            averageRatingElement.textContent = averageRating.toFixed(1);
+        }
+        
+        if (ratingCountElement) {
+            ratingCountElement.textContent = `(${ratingCount} rating${ratingCount !== 1 ? 's' : ''})`;
+        }
+        
+        if (storyRatingStars) {
+            console.log('Updating stars on reviews page:', averageRating);
+            this.updateStars(storyRatingStars, averageRating);
+            // Also make sure the stars are visible
+            storyRatingStars.style.display = 'flex';
+        } else {
+            console.log('Story rating stars element not found on reviews page');
+        }
+        
+        // Update reviews list (only on reviews page)
+        const reviewsList = document.getElementById('reviews-list');
+        if (reviewsList) {
+            if (reviews.length === 0) {
+                reviewsList.innerHTML = '<div class="loading-message"><p>No reviews yet. Be the first to write one!</p></div>';
+            } else {
+                reviewsList.innerHTML = '';
+                reviews.forEach(review => {
+                    const reviewElement = document.createElement('div');
+                    reviewElement.className = 'review-item';
+                    reviewElement.innerHTML = `
+                        <div class="review-header">
+                            <strong>${review.userName}</strong>
+                            <span class="review-date">${new Date(review.timestamp.seconds * 1000).toLocaleDateString()}</span>
+                        </div>
+                        <div class="review-content">${review.reviewText}</div>
+                    `;
+                    reviewsList.appendChild(reviewElement);
+                });
+            }
         }
     }
 
@@ -276,6 +348,34 @@ class FirebaseRatingSystem {
         allStories.forEach(storyId => {
             this.updateRating(storyId);
         });
+    }
+
+    initializeReviewsPage() {
+        console.log('Initializing reviews page...');
+        
+        // Get story ID from URL or default to saraswati
+        const urlParams = new URLSearchParams(window.location.search);
+        const storyId = urlParams.get('story') || 'saraswati';
+        
+        console.log('Story ID:', storyId);
+        console.log('Ratings data:', this.ratings);
+        console.log('Reviews data:', this.reviews);
+        
+        // Update the reviews page for this story
+        this.updateReviewsPage(storyId);
+        
+        // Also update the rating display
+        this.updateRating(storyId);
+        
+        // Force update stars after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            const storyRatingStars = document.getElementById('story-rating-stars');
+            if (storyRatingStars) {
+                console.log('Forcing star update...');
+                const averageRating = this.getAverageRating(storyId);
+                this.updateStars(storyRatingStars, averageRating);
+            }
+        }, 100);
     }
 
     getUserId() {
@@ -344,7 +444,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const script = document.createElement('script');
             script.src = 'rating-system.js';
             script.onload = () => {
+                console.log('Local storage system loaded');
                 window.ratingSystem = new RatingSystem();
+            };
+            script.onerror = () => {
+                console.error('Failed to load local storage system');
             };
             document.head.appendChild(script);
         }
